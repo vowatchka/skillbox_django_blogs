@@ -45,7 +45,17 @@
     python manage.py migrate
     python manage.py createsuperuser
     ```
-5. Запустить отладочный сервер
+5. Применить локализацию
+    * Применить локализацию для всех языков, поддерживаемых django
+        ```
+        python manage.py compilemessages
+        ```
+    * Или применить локализацию только для языков, поддерживаемых в рамках данной работы
+        ```
+        python manage.py compilemessages -l en -l de -l fr -l ru
+        ```
+6. Запустить отладочный сервер
     ```
     python manage.py runserver
     ```
+7. Перейти по адресу http://127.0.0.1:8000/, зарегистрировать нового пользователя и начать работу.
