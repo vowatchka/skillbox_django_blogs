@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>{% trans 'Регистрация' %}</title>
+</head>
+<body>
+  {% include 'lang-form.html' %}
+  <hr />
+
+  <h1>{% trans 'Регистрация' %}</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{reg_form.as_p}}
+    <button>{% trans 'Зарегистрироваться' %}</button>
+  </form>
+
+  <a href="{% url 'login' %}">{% trans 'Войти' %}</a>
+</body>
+</html>

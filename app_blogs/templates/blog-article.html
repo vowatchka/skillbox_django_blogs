@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{blog_article.title}}{% endblock %}
+
+{% load access_filters %}
+
+{% block menu_items %}
+  <li><a href="{% url 'blog' blog_article.blog.profile.user.username blog_article.blog.id %}">{% trans 'Назад в блог' %}</a></li>&nbsp;&nbsp;&nbsp;
+{% endblock %}
+
+{% block content %}
+  <h1>{{blog_article.title}}</h1>
+  <div>
+    {% trans 'Дата публикации' %}: {{blog_article.created_at|date:'SHORT_DATETIME_FORMAT'}}
+  </div>
+  {% if request|has_access %}
+  <div>
+    <a href="{% url 'edit_blog_article' blog_article.blog.profile.user.username blog_article.blog.id blog_article.id %}">
+      {% trans 'Редактировать' %}
+    </a>
+  </div>
+  <div>
+    <a href="{% url 'delete_blog_article' blog_article.blog.profile.user.username blog_article.blog.id blog_article.id %}">
+      {% trans 'Удалить' %}
+    </a>
+  </div>
+  {% endif %}
+
+  <h3>{% trans 'Содержимое статьи' %}</h3>
+  <div>
+    {{blog_article.content}}
+  </div>
+
+  <h3>{% trans 'Вложения' %}</h3>
+  {% if attachments|length %}
+    <ul style="list-style:none;padding-left:3px;">
+      {% for att in attachments %}
+      <li>
+        <img src="{{att.file.url}}" style="width:100px;height:100px;" />
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% trans 'В этой статье нет вложений' %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Редактировать статью' %} {{blog_article.title}}{% endblock %}
+
+{% block menu_items %}
+  <li><a href="{% url 'blog' blog_article.blog.profile.user.username blog_article.blog.id %}">{% trans 'Назад в блог' %}</a></li>&nbsp;&nbsp;&nbsp;
+  <li><a href="{% url 'blog_article' blog_article.blog.profile.user.username blog_article.blog.id blog_article.id %}">{% trans 'Назад к статье' %}</a></li>&nbsp;&nbsp;&nbsp;
+{% endblock %}
+
+{% block content %}
+  <h1>{% trans 'Редактировать статью' %} {{blog_article.title}}</h1>
+
+  <form method="post" action="{% url 'edit_blog_article' blog_article.blog.profile.user.username blog_article.blog.id blog_article.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>{% trans 'Сохранить' %}</button>
+  </form>
+{% endblock %}

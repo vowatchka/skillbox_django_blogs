@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{blog.title}}{% endblock %}
+
+{% load access_filters %}
+
+{% block content %}
+  <h1>{{blog.title}}</h1>
+  <div>
+    {{blog.description}}
+  </div>
+  <div>
+    {% trans 'Дата публикации' %}: {{blog.created_at|date:'SHORT_DATETIME_FORMAT'}}
+  </div>
+  {% if request|has_access %}
+  <div>
+    <a href="{% url 'edit_blog' blog.profile.user.username blog.id %}">
+      {% trans 'Редактировать' %}
+    </a>
+  </div>
+  <div>
+    <a href="{% url 'delete_blog' blog.profile.user.username blog.id %}">
+      {% trans 'Удалить' %}
+    </a>
+  </div>
+  {% endif %}
+
+  <h2>{% trans 'Статьи' %}</h2>
+  {% if blog_articles|length %}
+    {% if request|has_access %}
+    <div style="padding:1px 0px;">
+      <a href="{% url 'create_blog_article' blog.profile.user.username blog.id %}">{% trans 'Написать еще статью' %}</a>
+    </div>
+    <div>
+      {% trans 'или загрузить из CSV' %}
+      <form method="post" action="{% url 'blog' blog.profile.user.username blog.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>{% trans 'Загрузить' %}</button>
+      </form>
+    </div>
+    {% endif %}
+
+    <ul style="list-style: none; padding-left: 0px;">
+      {% for article in blog_articles %}
+        <li>
+          <h4><a href="{% url 'blog_article' article.blog.profile.user.username article.blog.id article.id %}">
+            {{article.title}}
+          </a></h4>
+          <p>{{article.short_content}}</p>
+          <div><small>
+            {% trans 'Дата публикации' %}: {{article.created_at|date:'SHORT_DATETIME_FORMAT'}}
+          </small></div>
+
+          {% if request|has_access %}
+            <div><small>
+              <a href="{% url 'edit_blog_article' article.blog.profile.user.username article.blog.id article.id %}">{% trans 'Редактировать' %}</a>&nbsp;&nbsp;&nbsp;
+              <a href="{% url 'delete_blog_article' article.blog.profile.user.username article.blog.id article.id %}">{% trans 'Удалить' %}</a>
+            </small></div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% trans 'В этом блоге пока нет ни одной статьи.' %}
+    {% if request|has_access %}
+    {% trans 'Самое время ее' %} <a href="{% url 'create_blog_article' blog.profile.user.username blog.id %}">{% trans 'создать' %}</a>!
+    <div>
+      {% trans 'или загрузить из CSV' %}
+      <form method="post" action="{% url 'blog' blog.profile.user.username blog.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>{% trans 'Загрузить' %}</button>
+      </form>
+    </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}

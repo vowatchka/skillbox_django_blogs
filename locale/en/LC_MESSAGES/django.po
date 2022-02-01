@@ -1,0 +1,305 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-20 18:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app_auth\admin.py:21 .\app_auth\models.py:10 .\app_auth\models.py:22
+msgid "Пользователь"
+msgstr "User profile"
+
+#: .\app_auth\apps.py:7 .\app_auth\templates\login.html:7
+#: .\app_auth\templates\login.html:13
+msgid "Авторизация"
+msgstr "Authorization"
+
+#: .\app_auth\forms.py:8 .\app_auth\forms.py:18 .\app_auth\models.py:8
+#: .\app_auth\templates\user-profile.html:26
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\app_auth\forms.py:9 .\app_auth\forms.py:19 .\app_auth\models.py:9
+#: .\app_auth\templates\user-profile.html:25
+msgid "Город"
+msgstr "City"
+
+#: .\app_auth\forms.py:17
+msgid "Аватарка"
+msgstr "Avatar"
+
+#: .\app_auth\models.py:16
+msgid "профиль пользователя"
+msgstr "user profile"
+
+#: .\app_auth\models.py:17
+msgid "профили пользователей"
+msgstr "user profiles"
+
+#: .\app_auth\models.py:21
+msgid "Аватар"
+msgstr "Avatar"
+
+#: .\app_auth\models.py:28
+msgid "аватар"
+msgstr "avatar"
+
+#: .\app_auth\models.py:29
+msgid "аватары"
+msgstr "avatars"
+
+#: .\app_auth\templates\login.html:18 .\app_auth\templates\register.html:21
+#: .\templates\base.html:19
+msgid "Войти"
+msgstr "Sign in"
+
+#: .\app_auth\templates\login.html:21 .\app_auth\templates\register.html:7
+#: .\app_auth\templates\register.html:13
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\app_auth\templates\logout.html:7
+msgid "Выход"
+msgstr "Sign out"
+
+#: .\app_auth\templates\logout.html:10
+msgid "Вы успешно вышли"
+msgstr "You have successfully logged out"
+
+#: .\app_auth\templates\logout.html:11
+#: .\app_blogs\templates\all-blog-articles.html:5 .\templates\base.html:11
+msgid "Главная"
+msgstr "Home"
+
+#: .\app_auth\templates\register.html:18
+msgid "Зарегистрироваться"
+msgstr "Register now"
+
+#: .\app_auth\templates\user-profile.html:5
+#: .\app_auth\templates\user-profile.html:10
+msgid "Профиль пользователя"
+msgstr "User profile"
+
+#: .\app_auth\templates\user-profile.html:20
+#: .\app_blogs\templates\create-blog-article.html:17
+#: .\app_blogs\templates\create-blog.html:13
+#: .\app_blogs\templates\edit-blog-article.html:18
+#: .\app_blogs\templates\edit-blog.html:17
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\app_auth\templates\user-profile.html:23
+msgid "Имя"
+msgstr "First name"
+
+#: .\app_auth\templates\user-profile.html:24
+msgid "Фамилия"
+msgstr "Last name"
+
+#: .\app_auth\templates\user-profile.html:30 .\app_blogs\apps.py:7
+msgid "Блоги"
+msgstr "Blogs"
+
+#: .\app_auth\templates\user-profile.html:34
+msgid "Создать еще блог"
+msgstr "Create another blog"
+
+#: .\app_auth\templates\user-profile.html:45
+#: .\app_blogs\templates\all-blog-articles.html:19
+#: .\app_blogs\templates\blog-article.html:16
+#: .\app_blogs\templates\blog.html:15 .\app_blogs\templates\blog.html:54
+msgid "Дата публикации"
+msgstr "Publish date"
+
+#: .\app_auth\templates\user-profile.html:46
+msgid "Количество записей"
+msgstr "Article count"
+
+#: .\app_auth\templates\user-profile.html:51
+#: .\app_blogs\templates\blog-article.html:21
+#: .\app_blogs\templates\blog.html:20 .\app_blogs\templates\blog.html:59
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\app_auth\templates\user-profile.html:52
+#: .\app_blogs\templates\blog-article.html:26
+#: .\app_blogs\templates\blog.html:25 .\app_blogs\templates\blog.html:60
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\app_auth\templates\user-profile.html:59
+msgid "У тебя еще нет ни одного блога."
+msgstr "You don't have any blogs yet."
+
+#: .\app_auth\templates\user-profile.html:61
+msgid "Самое время его"
+msgstr "It's time for"
+
+#: .\app_auth\templates\user-profile.html:61 .\app_blogs\templates\blog.html:69
+msgid "создать"
+msgstr "create it"
+
+#: .\app_blogs\admin.py:22
+msgid "Кол-во записей в блоге"
+msgstr "Blog article count"
+
+#: .\app_blogs\admin.py:40 .\app_blogs\models.py:28
+msgid "Содержимое записи"
+msgstr "Article content"
+
+#: .\app_blogs\admin.py:41
+msgid "Кол-во файлов"
+msgstr "File count"
+
+#: .\app_blogs\admin.py:42 .\app_blogs\admin.py:58 .\app_blogs\models.py:13
+msgid "Автор блога"
+msgstr "Blog author"
+
+#: .\app_blogs\admin.py:57 .\app_blogs\models.py:31
+#: .\app_blogs\templates\all-blog-articles.html:18
+msgid "Блог"
+msgstr "Blog"
+
+#: .\app_blogs\forms.py:14 .\app_blogs\templates\blog-article.html:36
+msgid "Вложения"
+msgstr "Attachments"
+
+#: .\app_blogs\forms.py:23 .\app_blogs\models.py:48
+msgid "Файл"
+msgstr "File"
+
+#: .\app_blogs\models.py:10
+msgid "Название блога"
+msgstr "Blog title"
+
+#: .\app_blogs\models.py:11
+msgid "Краткое описание"
+msgstr "Short description"
+
+#: .\app_blogs\models.py:12 .\app_blogs\models.py:29
+msgid "Дата создания"
+msgstr "Creation date"
+
+#: .\app_blogs\models.py:22
+msgid "блог"
+msgstr "blog"
+
+#: .\app_blogs\models.py:23
+msgid "блоги"
+msgstr "blogs"
+
+#: .\app_blogs\models.py:27
+msgid "Заголовок записи блога"
+msgstr "Article title"
+
+#: .\app_blogs\models.py:30
+msgid "Дата последнего изменения"
+msgstr "Last modified date"
+
+#: .\app_blogs\models.py:43
+msgid "статья блога"
+msgstr "blog article"
+
+#: .\app_blogs\models.py:44
+msgid "статьи блога"
+msgstr "blog articles"
+
+#: .\app_blogs\models.py:49
+msgid "Статья блога"
+msgstr "Blog article"
+
+#: .\app_blogs\models.py:55
+msgid "файл"
+msgstr "file"
+
+#: .\app_blogs\models.py:56
+msgid "файлы"
+msgstr "files"
+
+#: .\app_blogs\templates\all-blog-articles.html:17
+msgid "Автор"
+msgstr "Author"
+
+#: .\app_blogs\templates\blog-article.html:10
+#: .\app_blogs\templates\create-blog-article.html:8
+#: .\app_blogs\templates\edit-blog-article.html:8
+#: .\app_blogs\templates\edit-blog.html:8
+msgid "Назад в блог"
+msgstr "Back to the blog"
+
+#: .\app_blogs\templates\blog-article.html:31
+msgid "Содержимое статьи"
+msgstr "Article content"
+
+#: .\app_blogs\templates\blog-article.html:46
+msgid "В этой статье нет вложений"
+msgstr "There are no attachments in this article"
+
+#: .\app_blogs\templates\blog.html:30
+msgid "Статьи"
+msgstr "Articles"
+
+#: .\app_blogs\templates\blog.html:34
+msgid "Написать еще статью"
+msgstr "Write another article"
+
+#: .\app_blogs\templates\blog.html:37 .\app_blogs\templates\blog.html:71
+msgid "или загрузить из CSV"
+msgstr "or upload from CSV"
+
+#: .\app_blogs\templates\blog.html:41 .\app_blogs\templates\blog.html:75
+msgid "Загрузить"
+msgstr "Upload"
+
+#: .\app_blogs\templates\blog.html:67
+msgid "В этом блоге пока нет ни одной статьи."
+msgstr "There are no articles on this blog yet."
+
+#: .\app_blogs\templates\blog.html:69
+msgid "Самое время ее"
+msgstr "It's time for"
+
+#: .\app_blogs\templates\create-blog-article.html:5
+#: .\app_blogs\templates\create-blog-article.html:12
+msgid "Создать статью блога"
+msgstr "Write another article"
+
+#: .\app_blogs\templates\create-blog.html:5
+#: .\app_blogs\templates\create-blog.html:8
+msgid "Создать блог"
+msgstr "Create blog"
+
+#: .\app_blogs\templates\edit-blog-article.html:5
+#: .\app_blogs\templates\edit-blog-article.html:13
+msgid "Редактировать статью"
+msgstr "Edit article"
+
+#: .\app_blogs\templates\edit-blog-article.html:9
+msgid "Назад к статье"
+msgstr "Back to the article"
+
+#: .\app_blogs\templates\edit-blog.html:5
+#: .\app_blogs\templates\edit-blog.html:12
+msgid "Редактировать блог"
+msgstr "Edit blog"
+
+#: .\templates\base.html:16
+msgid "Профиль"
+msgstr "Profile"
+
+#: .\templates\base.html:17
+msgid "Выйти"
+msgstr "Sign out"

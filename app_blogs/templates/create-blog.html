@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Создать блог' %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans 'Создать блог' %}</h1>
+
+  <form method="post" action="{% url 'create_blog' username %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>{% trans 'Сохранить' %}</button>
+  </form>
+{% endblock %}

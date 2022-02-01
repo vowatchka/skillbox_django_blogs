@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Главная' %}{% endblock %}
+
+{% block content %}
+  <ul style="list-style: none; padding-left: 0px;">
+  {% for article in blog_articles %}
+    <li>
+      <h3><a href="{% url 'blog_article' article.blog.profile.user.username article.blog.id article.id %}">
+        {{article.title}}
+      </a></h3>
+      <p>{{article.short_content}}</p>
+      <div>
+        <small>
+          {% trans 'Автор' %}: <a href="{% url 'user_profile' article.blog.profile.user.username %}">{{article.blog.profile.user.username}}</a> &nbsp;
+          {% trans 'Блог' %}: <a href="{% url 'blog' article.blog.profile.user.username article.blog.id%}">{{article.blog.title}}</a> &nbsp;
+          {% trans 'Дата публикации' %}: {{article.created_at|date:'SHORT_DATETIME_FORMAT'}}
+        </small>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

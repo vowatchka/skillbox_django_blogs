@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Редактировать блог' %} {{blog.title}}{% endblock %}
+
+{% block menu_items %}
+  <li><a href="{% url 'blog' blog.profile.user.username blog.id %}">{% trans 'Назад в блог' %}</a></li>&nbsp;&nbsp;&nbsp;
+{% endblock %}
+
+{% block content %}
+  <h1>{% trans 'Редактировать блог' %} {{blog.title}}</h1>
+
+  <form method="post" action="{% url 'edit_blog' blog.profile.user.username blog.id %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>{% trans 'Сохранить' %}</button>
+  </form>
+{% endblock %}

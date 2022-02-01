@@ -1,0 +1,31 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <ul style="display:flex; list-style:none;">
+    <li><a href="/">{% trans 'Главная' %}</a></li>&nbsp;&nbsp;&nbsp;
+
+    {% block menu_items %}{% endblock %}
+
+    {% if request.user.is_authenticated %}
+    <li><a href="{% url 'user_profile' request.user.username %}">{% trans 'Профиль' %}</a></li>&nbsp;&nbsp;&nbsp;
+    <li><a href="{% url 'logout' %}">{% trans 'Выйти' %}</a></li>&nbsp;&nbsp;&nbsp;
+    {% else %}
+    <li><a href="{% url 'login' %}">{% trans 'Войти' %}</a></li>&nbsp;&nbsp;&nbsp;
+    {% endif %}
+
+    <li>
+      {% include 'lang-form.html' %}
+    </li>
+  </ul>
+  <hr/>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Профиль пользователя' %} {{user_profile.user.username}}{% endblock %}
+
+{% load access_filters %}
+
+{% block content %}
+  <h1>{% trans 'Профиль пользователя' %} {{user_profile.user.username}}</h1>
+
+  {% if avatar.avatar %}
+    <img src="{{avatar.avatar.url}}" style="width:100px;height:100px;border-radius:100px;"/>
+  {% endif %}
+
+  {% if request|has_access %}
+    <form method="post" action="{% url 'user_profile' user_profile.user.username %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button>{% trans 'Сохранить' %}</button>
+    </form>
+  {% else %}
+  <div>{% trans 'Имя' %}: <input type="text" value="{{user_profile.user.first_name}}" disabled/></div>
+  <div>{% trans 'Фамилия' %}: <input type="text" value="{{user_profile.user.last_name}}" disabled/></div>
+  <div>{% trans 'Город' %}: <input type="text" value="{{user_profile.city}}" disabled/></div>
+  <div>{% trans 'Телефон' %}: <input type="text" value="{{user_profile.phone}}" disabled/></div>
+  <div>Email: <input type="text" value="{{user_profile.user.email}}" disabled/></div>
+  {% endif %}
+
+  <h2>{% trans 'Блоги' %}</h2>
+  {% if blogs|length %}
+    {% if request|has_access %}
+    <div style="padding:1px 0px;">
+      <a href="{% url 'create_blog' user_profile.user.username %}">{% trans 'Создать еще блог' %}</a>
+    </div>
+    {% endif %}
+
+    <ul>
+    {% for blog in blogs %}
+      <li>
+        <h4><a href="{% url 'blog' blog.profile.user.username blog.id %}">
+          {{blog.title}}
+        </a></h4>
+        <div><small>
+          {% trans 'Дата публикации' %}: {{blog.created_at|date:'SHORT_DATETIME_FORMAT'}} &nbsp;
+          {% trans 'Количество записей' %}: {{blog.articles_count}}
+        </small></div>
+
+        {% if request|has_access %}
+          <div><small>
+            <a href="{% url 'edit_blog' blog.profile.user.username blog.id %}">{% trans 'Редактировать' %}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'delete_blog' blog.profile.user.username blog.id %}">{% trans 'Удалить' %}</a>
+          </small></div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    {% trans 'У тебя еще нет ни одного блога.' %}
+    {% if request|has_access %}
+    {% trans 'Самое время его' %} <a href="{% url 'create_blog' user_profile.user.username %}">{% trans 'создать' %}</a>!
+    {% endif %}
+  {% endif %}
+{% endblock %}
